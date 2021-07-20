@@ -38,6 +38,12 @@
                         <p>User</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{url("admin/logout")}}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-info"></i>
+                        <p>Logout</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

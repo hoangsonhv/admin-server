@@ -36,6 +36,8 @@
                                         <th>description</th>
                                         <th>price</th>
                                         <th>qty</th>
+                                        <th>sale</th>
+                                        <th>new</th>
                                         <th>category_id</th>
                                         <th>Updated At</th>
                                         <th>Created At</th>
@@ -52,6 +54,8 @@
                                             <td>{{$item->description}}</td>
                                             <td>{{$item->price}}</td>
                                             <td>{{$item->qty}}</td>
+                                            <td>{{$item->sale}}</td>
+                                            <td>{{$item->new}}</td>
                                             <td>{{$item->category_id}}</td>
                                             <td>{{$item->created_at}}</td>
                                             <td>{{$item->updated_at}}</td>

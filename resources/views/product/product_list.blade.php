@@ -20,6 +20,7 @@
                         <th>price</th>
                         <th>qty</th>
                         <th>sale</th>
+                        <th>new</th>
                         <th>category_id</th>
                         <th>Created At</th>
                         <th>Updated At</th>
@@ -37,18 +38,15 @@
                             <td>{{$item->price}}</td>
                             <td>{{$item->qty}}</td>
                             <td>{{$item->sale}}</td>
+                            <td>{{$item->new}}</td>
                             <td>{{$item->category_id}}</td>
                             <td>{{formatDate($item->created_at)}}</td>
                             <td>{{formatDate($item->updated_at)}}</td>
                             <td class="center"><a href="{{url("admin/products/edit",["id"=>$item->id])}}"><i class="fa fa-pencil fa-fw"></i>Sửa</a></td>
                             <td class="center">
                                 <a href="{{url('admin/products/delete',["id"=>$item->id])}}" style="text-decoration: none">
-    {{--                                <form method="post" action="{{url('admin/products/delete',["id"=>$item->id])}}">--}}
-    {{--                                    @method('DELETE')--}}
-    {{--                                    @csrf--}}
                                         <i class="fa fa-trash-o  fa-fw"></i>
                                         Delete
-    {{--                                </form>--}}
                                 </a>
                             </td>
                         </tr>

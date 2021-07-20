@@ -40,7 +40,7 @@
                                     $total += $item->__get("price") * $item->cart_qty;
                                 @endphp
                                 <tr >
-                                    <td class="cart-pic first-row"><img src="upload/{{$item['image']}}" style="width:150px;height: 150px"></td>
+                                    <td class="cart-pic first-row"><img src="{{$item->getImage()}}" style="width:150px;height: 150px"></td>
                                     <td class=" first-row">
                                         <h5>{{$item['name']}}</h5>
                                         @if($item->qty < $item->cart_qty)

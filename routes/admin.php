@@ -20,7 +20,7 @@ Route::middleware("admin")->group(function (){
 
     Route::get("/products", [ProductController::class, "list"]);
     Route::get('/products/themmoi', [ProductController::class, "add"]);
-    Route::post('/save', [ProductController::class, "save"]);
+    Route::post('/productSave', [ProductController::class, "productSave"]);
     Route::get('/products/edit/{id}', [ProductController::class, "edit"]);
     Route::post('/products/update/{id}', [ProductController::class, "update"]);
     Route::get('/products/delete/{id}', [ProductController::class, "destroy"]);

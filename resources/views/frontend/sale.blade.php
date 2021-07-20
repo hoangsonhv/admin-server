@@ -20,7 +20,7 @@
                                 <div class="col-lg-4 col-sm-6">
                                     <div class="product-item">
                                         <div class="pi-pic">
-                                            <img src="upload/{{$product->image}}" alt="">
+                                            <img src="{{$product->getImage()}}" alt="">
                                             @if($product->sale == 1)
                                                 <div class="sale pp-sale">Sale</div>
                                             @endif

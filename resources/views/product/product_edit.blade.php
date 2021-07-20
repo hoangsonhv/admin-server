@@ -39,6 +39,10 @@
                                 <input type="number" name="sale" value="{{$item->sale}}" class="form-control" placeholder="sale..">
                             </div>
                             <div class="form-group">
+                                <label>Sale</label>
+                                <input type="number" name="new" value="{{$item->new}}" class="form-control" placeholder="né..">
+                            </div>
+                            <div class="form-group">
                                 <label>Category_id</label>
                                 <select name="category_id" class="form-control" >
                                     @foreach($category as $cat)

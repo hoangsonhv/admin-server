@@ -57,7 +57,7 @@
                                 <div class="col-lg-4 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
-                                        <img src="upload/{{$product->image}}" alt="">
+                                        <img src="{{$product->getImage()}}" alt="">
                                         @if($product->sale == 1)
                                             <div class="sale pp-sale">Sale</div>
                                         @endif
@@ -102,7 +102,7 @@
                                 <div class="col-lg-4 col-sm-6">
                                     <div class="product-item">
                                         <div class="pi-pic">
-                                            <img src="upload/{{$product1->image}}" alt="">
+                                            <img src="{{$product1->getImage()}}" alt="">
                                             <div class="sale pp-sale">Sale</div>
                                             <ul>
                                                 <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>

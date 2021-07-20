@@ -10,7 +10,7 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="{{url("admin/save")}}" method="post" enctype="multipart/form-data">
+                        <form action="{{url("admin/productSave")}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Name:</label>
@@ -20,22 +20,32 @@
                             <div class="form-group">
                                 <label>Image:</label>
                                 <input type="file" value="{{old("image")}}" name="image" >
+                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <label>Description:</label>
                                 <input type="text" value="{{old("description")}}" class="form-control" name="description">
+                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <label>Price:</label>
                                 <input type="number" min="0" value="{{old("price")}}" class="form-control" name="price">
+                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <label>Qty:</label>
                                 <input type="number" min="0" class="form-control" name="qty" >
+                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <label>Sale:</label>
-                                <input type="number" min="0" value="{{old("price")}}" class="form-control" name="sale">
+                                <input type="number" min="0" class="form-control" name="sale">
+                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
+                            </div>
+                            <div class="form-group">
+                                <label>New:</label>
+                                <input type="number" min="0" class="form-control" name="new_product">
+                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <label>Category_id</label>
@@ -48,7 +58,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <button type="submit" name="dangky">Add</button>
+                            <button type="submit">Add</button>
                         </form>
                     </div>
                 </div>

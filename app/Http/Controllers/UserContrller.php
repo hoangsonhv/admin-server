@@ -16,6 +16,17 @@ class UserContrller extends Controller
         ]);
     }
 
+    public function addUser(Request $request){
+        $request->validate([
+            "name"=>"required",
+            "email"=>"required",
+            "password"=>"required"
+        ]);
+//        $users->create([
+//
+//        ]);
+    }
+
     public function editUser($id){
         $user = User::findOrFail($id);
         return view("user.user_edit",[
@@ -36,19 +47,20 @@ class UserContrller extends Controller
             "password" => $request->get("password")
         ]);
 //        dd($users);
-        return redirect()->to("admin/user");
+        return redirect("admin/users");
     }
 
     public function deleteUser($id){
+//        dd($id);
         User::findOrFail($id)->delete();
-        return redirect()->to("admin/user");
+        return redirect("admin/users");
     }
 
-    public function dashboard(){
-        return view("user/user_list");
-    }
+//    public function dashboard(){
+//        return view("user/user_list");
+//    }
 
-    public function logout() {
+    public function logout(){
         Auth::logout();
         return redirect('login');
     }

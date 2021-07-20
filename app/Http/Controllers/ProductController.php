@@ -23,20 +23,26 @@ class ProductController extends Controller
         ]);
     }
 
-    public function save(Request $request){
+    public function productSave(Request $request){
+//        dd($request);
         $request->validate([
             "name"=>"required",
+            "description"=>"required",
             "price"=>"required|min:0",
             "qty"=>"required|min:0",
             "sale"=>"required",
+            "new_product"=>"required",
             "category_id"=>"required|numeric|min:1"
         ],[
             "name.required"=>"Vui lòng nhập tên sản phẩm.!",
-            "price.required"=>"Vui lòng nhập giá sản phẩm.!",
+            "description.required"=>"Vui lòng nhập giá sản phẩm.!",
+            "price.required"=>"Vui lòng nhập thông tin sản phẩm.!",
             "qty.required"=>"Vui lòng nhập số lượng sản phẩm.!",
             "sale.required"=>"Sản phẩm có đang sale không!",
+            "new_product.required"=>"Sản phẩm có mới không!",
             "category_id.required"=>"Vui lòng nhập tên loại sản phẩm.!",
         ]);
+
         $image = null;
         if ($request->has("image")){
             $file = $request->file("image");
@@ -44,6 +50,7 @@ class ProductController extends Controller
             $fileName = time().".".$exName;
             $fileSize = $file->getSize();
             $allow = ["png","jpeg","jpg","gif"];
+
             if (in_array($exName,$allow)){
                 if ($fileSize < 10000000){
                     try {
@@ -53,7 +60,8 @@ class ProductController extends Controller
                 }
             }
         }
-        try {
+//        dd($request->description);
+//        try
             Product::create([
                 "name"=>$request->get("name"),
                 "image"=>$image,
@@ -61,11 +69,12 @@ class ProductController extends Controller
                 "price"=>$request->get("price"),
                 "qty"=>$request->get("qty"),
                 "sale"=>$request->get("sale"),
+                "new"=>$request->get("new_product"),
                 "category_id"=>$request->get("category_id")
             ]);
-        }catch (\Exception $e){
-            abort(404);
-        }
+//        }catch (\Exception $e){
+//            return "sai rồi";
+//        }
         return redirect()->to("admin/products");
     }
 
@@ -81,9 +90,11 @@ class ProductController extends Controller
     public function update(Request $request,$id){
         $request->validate([
             "name"=>"required",
+            "description"=>"required",
             "price"=>"required|min:0",
             "qty"=>"required|min:0",
             "sale"=>"required",
+            "new"=>"required",
             "category_id"=>"required|numeric|min:1"
         ]);
         $image = request("image");
@@ -122,6 +133,7 @@ class ProductController extends Controller
                 "price"=>$request->get("price"),
                 "qty"=>$request->get("qty"),
                 "sale"=>$request->get("sale"),
+                "new"=>$request->get("new"),
                 "category_id"=>$request->get("category_id")
             ]);
         }
