@@ -22,7 +22,7 @@
                                     <div class="col-lg-4 col-sm-6">
                                         <div class="product-item">
                                             <div class="pi-pic">
-                                                <img src="{{$product->getImage()}}" alt="">
+                                                <img src="{{$product->getImage()}}" >
                                                 @if($product->sale == 1)
                                                     <div class="sale pp-sale">Sale</div>
                                                 @endif
@@ -55,10 +55,8 @@
         </section>
         <!-- Product Shop Section End -->
     @else
-        <div>
-            <h2>Not value found</h2>
+        <div class="container" style="height: 100px;margin-top: 50px">
+            <h2>Not value product</h2>
         </div>
     @endif
-
-
 @endsection

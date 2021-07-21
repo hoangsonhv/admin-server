@@ -164,7 +164,7 @@ class HomeController extends Controller
         $search = $request->input('search');
         $products = Product::with("category")->where("name",'LIKE',"%{$search}%")
                                             ->orWhere("description",'LIKE',"%{$search}%")
-                                            ->orWhere("price",'LIKE',"{$search}%")->paginate(9);
+                                            ->orWhere("price","$search")->paginate(9);
 //        dd($products);
 
         return view("frontend/search",[

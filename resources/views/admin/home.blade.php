@@ -52,7 +52,7 @@
                                             <td>{{$item->name}}</td>
                                             <td><img style="width: 70px;height: 70px" src="{{$item->getImage()}}"/></td>
                                             <td>{{$item->description}}</td>
-                                            <td>{{$item->price}}</td>
+                                            <td>{{number_format($item->price)}}</td>
                                             <td>{{$item->qty}}</td>
                                             <td>{{$item->sale}}</td>
                                             <td>{{$item->new}}</td>
