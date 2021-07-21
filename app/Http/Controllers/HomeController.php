@@ -191,4 +191,13 @@ class HomeController extends Controller
             "products"=>$products
         ]);
     }
+    public function contacts(){
+        return view("frontend/contacts");
+    }
+    public function about(){
+        return view("frontend/about");
+    }
+    public function productDetail(){
+        return view("frontend/product_detail");
+    }
 }

@@ -37,3 +37,7 @@ Route::get("shopping-cart",[HomeController::class,"shoppingCart"])->name("shoppi
     Route::get("checkout",[HomeController::class,"checkOut"]);
     Route::post("checkout",[HomeController::class,"placeOrder"]);
 });
+
+Route::get("contact-us",[HomeController::class,"contacts"]);
+Route::get("about-us",[HomeController::class,"about"]);
+Route::get("product-detail",[HomeController::class,"productDetail"]);
