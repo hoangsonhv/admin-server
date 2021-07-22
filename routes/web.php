@@ -22,22 +22,39 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get("/api",function (){
     return view("test");
 });
-Route::get('/',[HomeController::class,'show']);
-Route::get("new-product",[HomeController::class,"newProduct"]);
-Route::get("sale-product",[HomeController::class,"saleProduct"]);
-Route::get("search",[HomeController::class,"searchItem"]);
-Route::get("products/add-to-cart/{id}",[HomeController::class,"addToCart"]);
-Route::get("product-type/{id}",[HomeController::class,"getProductType"]);
-Route::get("shopping-cart",[HomeController::class,"shoppingCart"])->name("shoppingCart");
-    Route::middleware("auth")->group(function(){
 
-    Route::get("delete-cart/{id}",[HomeController::class,"deleteCart"]);
-    Route::get("clear-cart",[HomeController::class,"clearCart"]);
-    Route::get("update-cart/{id}",[HomeController::class,"updateCart"]);
-    Route::get("checkout",[HomeController::class,"checkOut"]);
-    Route::post("checkout",[HomeController::class,"placeOrder"]);
-});
+Route::get('/',[HomeController::class,'show']);
+
+Route::get("new-product",[HomeController::class,"newProduct"]);
+
+Route::get("sale-product",[HomeController::class,"saleProduct"]);
+
+Route::get("search",[HomeController::class,"searchItem"]);
+
+Route::get("products/add-to-cart/{id}",[HomeController::class,"addToCart"]);
+
+Route::get("product-type/{id}",[HomeController::class,"getProductType"]);
+
+Route::get("shopping-cart",[HomeController::class,"shoppingCart"])->name("shoppingCart");
 
 Route::get("contact-us",[HomeController::class,"contacts"]);
+
 Route::get("about-us",[HomeController::class,"about"]);
-Route::get("product-detail",[HomeController::class,"productDetail"]);
+
+Route::get("product-detail/{id}",[HomeController::class,"productDetail"]);
+
+Route::middleware("auth")->group(function(){
+
+    Route::get("delete-cart/{id}",[HomeController::class,"deleteCart"]);
+
+    Route::get("clear-cart",[HomeController::class,"clearCart"]);
+
+    Route::get("update-cart/{id}",[HomeController::class,"updateCart"]);
+
+    Route::get("checkout",[HomeController::class,"checkOut"]);
+
+    Route::post("checkout",[HomeController::class,"placeOrder"]);
+
+    Route::post("product-detail/{id}",[HomeController::class,"createComment"]);
+});
+

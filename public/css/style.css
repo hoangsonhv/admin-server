@@ -4594,7 +4594,7 @@ now override the 3.3 new styles for modern browsers & apply opacity
     left: 0;
     bottom: 0;
     height: 4px;
-    width: 80px;
+    /*width: 80px;*/
     background: #12263a;
 }
 .product-link{
@@ -4789,4 +4789,23 @@ now override the 3.3 new styles for modern browsers & apply opacity
 .review-form .round-black-btn {
     text-transform: uppercase;
     cursor: pointer;
+}
+
+.border-1{
+    border-bottom: 2px solid #D8D8D8;
+}
+
+.comment-comment{
+    margin-top: 50px;
+}
+
+.comment-1{
+    height: 100px;
+}
+
+.comment-comment .comment-1 p{
+    color: black;
+}
+.text-comment{
+    float: right;
 }

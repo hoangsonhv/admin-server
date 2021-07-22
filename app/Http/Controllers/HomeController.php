@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Exception;
@@ -16,7 +18,7 @@ class HomeController extends Controller
 {
     public function show(){
         $products = Product::with("category")->paginate(6);
-        $products1 = Product::with("category")->where("sale",1)->paginate(9);
+        $products1 = Product::with("category")->where("sale",'<>','0')->paginate(9);
         return view("frontend/home",[
             "products"=>$products,
             "products1"=>$products1
@@ -165,8 +167,6 @@ class HomeController extends Controller
         $products = Product::with("category")->where("name",'LIKE',"%{$search}%")
                                             ->orWhere("description",'LIKE',"%{$search}%")
                                             ->orWhere("price","$search")->paginate(9);
-//        dd($products);
-
         return view("frontend/search",[
             "products"=>$products
         ]);
@@ -177,7 +177,6 @@ class HomeController extends Controller
         $product_type = Product::with("category")->where('category_id',$type)->get();
         $cate = DB::table("categories")->where("id",$type)->get();
 
-//        dd($cate);
         return view("frontend/cate-product",[
             "product_type"=>$product_type,
             "cate"=>$cate
@@ -185,19 +184,48 @@ class HomeController extends Controller
     }
 
     public function saleProduct(){
-        $products = Product::with("category")->where("sale",1)->paginate(9);
+        $products = Product::with("category")->where("sale",'<>','0')->paginate(9);
 
         return view("frontend/sale",[
             "products"=>$products
         ]);
     }
+
     public function contacts(){
         return view("frontend/contacts");
     }
+
     public function about(){
         return view("frontend/about");
     }
-    public function productDetail(){
-        return view("frontend/product_detail");
+
+    public function createComment(Request $request,$id){
+        $request->validate([
+            "content"=>"required",
+        ]);
+        try {
+            $user = Auth::id();
+            Comment::create([
+                "id_user"=> $user,
+                "id_product"=> $id,
+                "content"=>$request->get("content")
+            ]);
+        }catch (Exception $e){
+            abort("Error");
+        }
+        return redirect()->back();
+    }
+
+    public function productDetail($id){
+        $auth = Auth::id();
+        $p = Product::with("category")->where("id",$id)->get();
+        $p1 = Product::with("category")->where("sale",'<>','0')->limit(3)->get();
+        $comments = Comment::with("user")->where("id_product",$id)->get();
+//        dd($comments);
+        return view("frontend/product_detail",[
+            "p"=>$p,
+            "p1"=>$p1,
+            "comments"=>$comments
+        ]);
     }
 }

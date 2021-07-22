@@ -8,7 +8,7 @@
                         <h1 class="page-header">Category List</h1>
                     </div>
                     <div class="col-lg-3">
-                        <a href="{{url("admin/categories/themmoi")}}" style="float: right;padding-top: 12px;"><button type="button">Add Category</button></a>
+                        <a href="{{url("admin/categories/add")}}" style="float: right;padding-top: 12px;"><button type="button">Add Category</button></a>
                     </div>
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>

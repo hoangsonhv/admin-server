@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -24,7 +25,6 @@ class ProductController extends Controller
     }
 
     public function productSave(Request $request){
-//        dd($request);
         $request->validate([
             "name"=>"required",
             "description"=>"required",
@@ -60,8 +60,7 @@ class ProductController extends Controller
                 }
             }
         }
-//        dd($request->description);
-//        try
+        try{
             Product::create([
                 "name"=>$request->get("name"),
                 "image"=>$image,
@@ -72,9 +71,9 @@ class ProductController extends Controller
                 "new"=>$request->get("new_product"),
                 "category_id"=>$request->get("category_id")
             ]);
-//        }catch (\Exception $e){
-//            return "sai rồi";
-//        }
+        }catch (\Exception $e){
+            abort("404");
+        }
         return redirect()->to("admin/products");
     }
 
@@ -144,7 +143,5 @@ class ProductController extends Controller
         Product::findOrFail($id)->delete();
         return redirect()->to("admin/products");
     }
-
-
 
 }

@@ -22,8 +22,8 @@
                                     <div class="col-lg-4 col-sm-6">
                                         <div class="product-item">
                                             <div class="pi-pic">
-                                                <img src="{{$product->getImage()}}" >
-                                                @if($product->sale == 1)
+                                                <a href="{{url("product-detail",["id"=>$product->id])}}"><img src="{{$product->getImage()}}" ></a>
+                                                @if($product->sale > 0)
                                                     <div class="sale pp-sale">Sale</div>
                                                 @endif
                                                 <ul>
@@ -34,12 +34,19 @@
                                             </div>
                                             <sdiv class="pi-text">
                                                 <div class="catagory-name">{{$product->category->name}}</div>
-                                                <a href="#">
+                                                <a href="{{url("product-detail",["id"=>$product->id])}}">
                                                     <h5>{{$product->name}}</h5>
                                                 </a>
-                                                <div class="product-price">
-                                                    {{ number_format($product->price) }}
-                                                </div>
+                                                @if($product->sale > 0)
+                                                    <div class="product-price">
+                                                        <span style="text-decoration: line-through;font-size: 20px;font-weight: 700;">{{ number_format($product->sale) }}đ</span>
+                                                        &emsp;<span style="text-decoration: none;color: #e7ab3c;font-size: 20px; font-weight: 700;">{{number_format($product->price)}}đ</span>
+                                                    </div>
+                                                @else
+                                                    <div class="product-price">
+                                                        {{number_format($product->price)}}đ
+                                                    </div>
+                                                @endif
                                             </sdiv>
                                         </div>
                                     </div>

@@ -8,7 +8,7 @@
                         <h1 class="page-header">Product List</h1>
                     </div>
                     <div class="col-lg-3">
-                        <a href="{{url("admin/products/themmoi")}}" style="float: right;padding-top: 12px;"><button type="button">Add Product</button></a>
+                        <a href="{{url("admin/products/add")}}" style="float: right;padding-top: 12px;"><button type="button">Add Product</button></a>
                     </div>
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>

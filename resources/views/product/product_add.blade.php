@@ -19,33 +19,33 @@
                             </div>
                             <div class="form-group">
                                 <label>Image:</label>
-                                <input type="file" value="{{old("image")}}" name="image" >
-                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
+                                <input type="file" value="{{old("image")}}" name="image" required>
+                                @error("image")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <label>Description:</label>
                                 <input type="text" value="{{old("description")}}" class="form-control" name="description">
-                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
+                                @error("description")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <label>Price:</label>
                                 <input type="number" min="0" value="{{old("price")}}" class="form-control" name="price">
-                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
+                                @error("price")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <label>Qty:</label>
                                 <input type="number" min="0" class="form-control" name="qty" >
-                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
+                                @error("qty")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <label>Sale:</label>
                                 <input type="number" min="0" class="form-control" name="sale">
-                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
+                                @error("sale")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <label>New:</label>
                                 <input type="number" min="0" class="form-control" name="new_product">
-                                @error("name")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
+                                @error("new_product")<div class="alert alert-danger" style="width: 100%;" >{{$message}}</div>@enderror
                             </div>
                             <div class="form-group">
                                 <label>Category_id</label>

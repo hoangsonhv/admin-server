@@ -30,6 +30,9 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function Comment(){
+        return $this->hasMany(Comment::class,'id_user','id');
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

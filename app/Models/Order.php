@@ -14,6 +14,6 @@ class Order extends Model
         "customer_tel",
         "customer_address",
         "grand_total",
-        "status",// khi tao moi don hang, nen de status  = 0 (pending)
+        "status",
     ];
 }
