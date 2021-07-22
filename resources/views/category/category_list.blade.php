@@ -4,8 +4,11 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-lg-3">
                         <h1 class="page-header">Category List</h1>
+                    </div>
+                    <div class="col-lg-6">
+                        <input class="form-control" id="myInput" type="text" placeholder="Search.." style="margin-top: 9px">
                     </div>
                     <div class="col-lg-3">
                         <a href="{{url("admin/categories/add")}}" style="float: right;padding-top: 12px;"><button type="button">Add Category</button></a>
@@ -22,7 +25,7 @@
 
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">
                         @foreach($category as $cat)
                         <tr class="odd gradeX" align="center">
                             <td>{{$cat->id}}</td>

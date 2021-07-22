@@ -41,10 +41,10 @@
                                 @php $total = 0;$checkout=0; @endphp
                                 @foreach($cart as $item)
                                     @php $total += $item->cart_qty * $item->__get("price") @endphp
-                                    <tr style="text-align: center;">
+                                    <tr style="text-align: center;color: black">
                                         <td><img src="{{$item->getImage()}}" width="50" height="50"/> </td>
                                         <td>
-                                            <p>{{$item->__get("name")}}</p>
+                                            <p style="color: black">{{$item->__get("name")}}</p>
                                             @if($item->qty < $item->cart_qty)
                                                 <p class="text-danger"><i>Sản phẩm không đủ số lượng</i></p>
                                                 @php $checkout++ @endphp

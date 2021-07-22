@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,7 +44,7 @@ class HomeController extends Controller
             }
         }
         Session::put("cart", $cart);
-        return redirect("/");
+        return redirect()->back();
     }
 
     private function checkCart($cart,$p){
@@ -164,7 +165,7 @@ class HomeController extends Controller
 
     public function searchItem(Request $request){
         $search = $request->input('search');
-        $products = Product::with("category")->where("name",'LIKE',"%{$search}%")
+        $products = Product::with("category")->where("name",'LIKE',"{$search}%")
                                             ->orWhere("description",'LIKE',"%{$search}%")
                                             ->orWhere("price","$search")->paginate(9);
         return view("frontend/search",[
@@ -196,7 +197,10 @@ class HomeController extends Controller
     }
 
     public function about(){
-        return view("frontend/about");
+        $teams = Team::all();
+        return view("frontend/about",[
+            "teams"=>$teams
+        ]);
     }
 
     public function createComment(Request $request,$id){
@@ -221,7 +225,6 @@ class HomeController extends Controller
         $p = Product::with("category")->where("id",$id)->get();
         $p1 = Product::with("category")->where("sale",'<>','0')->limit(3)->get();
         $comments = Comment::with("user")->where("id_product",$id)->get();
-//        dd($comments);
         return view("frontend/product_detail",[
             "p"=>$p,
             "p1"=>$p1,

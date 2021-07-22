@@ -103,18 +103,21 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="select-total">
-                                            <span>total:</span>
-                                            <h5>{{number_format($total)}}đ</h5>
-                                        </div>
-                                    @else
-                                        <span>Giỏ hàng trống</span>
+                                        @if(count($cart) > 0)
+                                            <div class="select-total">
+                                                <span>total:</span>
+                                                <h5>{{number_format($total)}}đ</h5>
+                                            </div>
+                                            <div class="select-button">
+                                                <a href="{{url("shopping-cart")}}" class="primary-btn view-card">VIEW CARD</a>
+                                                <a href="{{url("checkout")}}" class="primary-btn checkout-btn">CHECK OUT</a>
+                                            </div>
+                                        @else
+                                            <span>Giỏ hàng trống</span>
+                                        @endif
                                     @endif
                                 </div>
-                                <div class="select-button">
-                                    <a href="{{url("shopping-cart")}}" class="primary-btn view-card">VIEW CARD</a>
-                                    <a href="{{url("checkout")}}" class="primary-btn checkout-btn">CHECK OUT</a>
-                                </div>
+
                             </div>
                         </li>
                     </ul>

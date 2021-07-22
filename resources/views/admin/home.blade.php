@@ -20,6 +20,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                <input class="form-control" id="myInput" type="text" placeholder="Search.." style="width: 40%">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -45,7 +46,7 @@
                                         <th>Delete</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="myTable">
                                     @foreach ($product as $item)
                                         <tr class="odd gradeX" align="center">
                                             <td>{{$item->id}}</td>
@@ -108,7 +109,7 @@
                                         <th>Delete</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="myTable">
                                     @foreach($category as $cat)
                                         <tr class="odd gradeX" align="center">
                                             <td>{{$cat->id}}</td>
@@ -128,7 +129,6 @@
                                             </td>
 
                                         </tr>
-
                                     @endforeach
                                     </tbody>
                                 </table>

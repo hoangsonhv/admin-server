@@ -43,6 +43,9 @@ Route::middleware("admin")->group(function (){
     Route::get("comments",[CommentController::class,"listComment"]);
     Route::get("comments/delete/{id}",[CommentController::class,"deleteComment"]);
 
+    Route::get("teams",[AdminController::class,"getTeam"]);
+    Route::get("teams/add",[AdminController::class,"getSaveTeam"]);
+    Route::post("teamsAdd",[AdminController::class,"saveTeam"]);
 });
 
 

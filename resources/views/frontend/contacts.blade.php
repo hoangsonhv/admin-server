@@ -33,7 +33,7 @@
                             </div>
                             <div class="ci-text">
                                 <span>Phone:</span>
-                                <p>+84987654321</p>
+                                <p>+8466668888</p>
                             </div>
                         </div>
                         <div class="cw-item">
@@ -51,17 +51,25 @@
                     <div class="contact-form">
                         <div class="leave-comment">
                             <h4>Leave A Comment</h4>
-                            <p>Our staff will call back later and answer your questions.</p>
-                            <form action="#" class="comment-form">
+
+                            @if(session()->has("success"))
+                                <div class="alert alert-info ">
+                                    {{session()->get("success")}}
+                                </div>
+                            @else
+                                <p style="color: black">Our staff will call back later and answer your questions.</p>
+                            @endif
+                            <form action="{{url("contact-us")}}" class="comment-form" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="Your name">
+                                        <input type="text" name="name" placeholder="Your name">
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="Your email">
+                                        <input type="text" name="email" placeholder="Your email">
                                     </div>
                                     <div class="col-lg-12">
-                                        <textarea placeholder="Your message"></textarea>
+                                        <textarea placeholder="Your message" name="content"></textarea>
                                         <button type="submit" class="site-btn">Send message</button>
                                     </div>
                                 </div>

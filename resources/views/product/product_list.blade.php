@@ -4,8 +4,11 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-lg-3">
                         <h1 class="page-header">Product List</h1>
+                    </div>
+                    <div class="col-lg-6">
+                        <input class="form-control" id="myInput" type="text" placeholder="Search.." style="margin-top: 9px">
                     </div>
                     <div class="col-lg-3">
                         <a href="{{url("admin/products/add")}}" style="float: right;padding-top: 12px;"><button type="button">Add Product</button></a>
@@ -28,7 +31,7 @@
                         <th>Delete</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                     @foreach ($product as $item)
                         <tr align="center" style="padding-top:50px;" class="odd gradeC">
                             <td>{{$item->id}}</td>

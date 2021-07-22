@@ -16,46 +16,16 @@
     <div class="container">
         <h2 style="text-align:center;padding: 20px" >Our Team Members</h2>
         <div class="row" style="margin-bottom: 50px">
-            <div class="column">
-                <div class="card">
-                    <img src="{{asset("upload/1626274045.jpg")}}" alt="Jane" style="width:100%">
-                    <h2>Lò Văn Tèo</h2>
-                    <p class="title">CEO & Founder</p>
-                    <p><button class="button">Contact</button></p>
+            @foreach($teams as $team)
+                <div class="col-md-4" style="height: 520px;margin-bottom: 30px">
+                    <div class="card" style="text-align: center">
+                        <img src="{{$team->teamImage()}}" alt="Jane" style="width:100%;height: 370px">
+                        <h3 style="padding: 10px 0">{{$team->name}}</h3>
+                        <p class="title">{{$team->position}}</p>
+                        <h3 style="padding: 10px 0;background-color: #0c84ff">{{$team->phone}}</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <img src="{{asset("upload/1626274045.jpg")}}" alt="Jane" style="width:100%">
-                    <h2>Lò Văn Tèo</h2>
-                    <p class="title">CEO & Founder</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <img src="{{asset("upload/1626274045.jpg")}}" alt="Jane" style="width:100%">
-                    <h2>Lò Văn Tèo</h2>
-                    <p class="title">CEO & Founder</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <img src="{{asset("upload/1626274045.jpg")}}" alt="Jane" style="width:100%">
-                    <h2>Lò Văn Tèo</h2>
-                    <p class="title">CEO & Founder</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <img src="{{asset("upload/1626274045.jpg")}}" alt="Jane" style="width:100%">
-                    <h2>Lò Văn Tèo</h2>
-                    <p class="title">CEO & Founder</p>
-                    <p><button class="button">Contact</button></p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection

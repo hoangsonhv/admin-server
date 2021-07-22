@@ -58,7 +58,7 @@
                                     </td>
                                     <td class="total-price first-row">{{ number_format($item['price'] * $item['cart_qty']) }}</td>
 
-                                    <td class="close-td first-row"><a href="{{url("clear-cart")}}" ><i class="ti-close"></i></a></td>
+                                    <td class="close-td first-row"><a href="{{url("delete-cart",["id"=>$item->id])}}" ><i class="ti-close"></i></a></td>
                                 </tr>
                             @endforeach
                             </tbody>

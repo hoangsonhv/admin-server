@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserContrller;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MessengerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +44,9 @@ Route::get("about-us",[HomeController::class,"about"]);
 
 Route::get("product-detail/{id}",[HomeController::class,"productDetail"]);
 
-Route::middleware("auth")->group(function(){
+Route::get("delete-cart/{id}",[HomeController::class,"deleteCart"]);
 
-    Route::get("delete-cart/{id}",[HomeController::class,"deleteCart"]);
+Route::middleware("auth")->group(function(){
 
     Route::get("clear-cart",[HomeController::class,"clearCart"]);
 
@@ -56,5 +57,9 @@ Route::middleware("auth")->group(function(){
     Route::post("checkout",[HomeController::class,"placeOrder"]);
 
     Route::post("product-detail/{id}",[HomeController::class,"createComment"]);
+
+    Route::post("contact-us",[MessengerController::class,"sendMessage"]);
+
+    Route::get("teams",[HomeController::class,"listTeam"]);
 });
 
