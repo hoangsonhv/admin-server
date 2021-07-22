@@ -113,7 +113,7 @@
                                                 <a href="{{url("checkout")}}" class="primary-btn checkout-btn">CHECK OUT</a>
                                             </div>
                                         @else
-                                            <span>Giỏ hàng trống</span>
+                                            <span style="color: black">Giỏ hàng trống</span>
                                         @endif
                                     @endif
                                 </div>
