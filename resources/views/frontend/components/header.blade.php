@@ -71,6 +71,7 @@
                                 @php $cart = session()->has("cart")?session()->get("cart"):[] @endphp
                                 <span id="total-qty-show">{{count($cart)}}</span>
                             </a>
+
                             <div class="cart-hover">
                                 <div id="change-item-cart">
                                     @if(session()->has("cart"))
@@ -106,6 +107,8 @@
                                             <span>total:</span>
                                             <h5>{{number_format($total)}}đ</h5>
                                         </div>
+                                    @else
+                                        <span>Giỏ hàng trống</span>
                                     @endif
                                 </div>
                                 <div class="select-button">

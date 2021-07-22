@@ -104,7 +104,6 @@
                                         <th>Name</th>
                                         <th>Updated At</th>
                                         <th>Created At</th>
-
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
