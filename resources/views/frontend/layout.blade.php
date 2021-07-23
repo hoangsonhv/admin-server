@@ -6,7 +6,6 @@
 <body>
 <!-- Page Preloder -->
 
-
 <!-- Header Section Begin -->
 @include('frontend.components.header')
 <!-- Header End -->
